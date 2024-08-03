@@ -22,6 +22,17 @@ body {
 
 h1 {
     margin-bottom: 20px;
+    color: #007bff;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
 }
 
 input {
@@ -29,9 +40,15 @@ input {
     font-size: 16px;
     border-radius: 5px;
     border: 2px solid #007bff;
-    margin-right: 10px;
     width: calc(100% - 120px);
     box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+    outline: none;
 }
 
 button {
@@ -41,37 +58,59 @@ button {
     border: none;
     font-weight: bold;
     border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    border: 2px solid #007bff;
+    background-color: #ffffff;
+    
+    color: rgb(0, 0, 0);
+    border: 2px solid #000000;
     transition: background-color 0.3s, color 0.3s;
 }
 
 button:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+    background-color: #66f796;
+    border-color: #000000;
+    color: black;
 }
 
 #movieDetails {
     margin-top: 20px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+#movieDetails:hover {
+    transform: scale(1.02);
 }
 
 #moviePoster {
     max-width: 100%;
     border-radius: 10px;
     margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+#moviePoster:hover {
+    transform: rotate(3deg);
 }
 
 h2 {
     margin-bottom: 10px;
+    color: #007bff;
+    font-size: 1.5em;
 }
 
 p {
     margin: 5px 0;
+    color: #333;
+    font-size: 1em;
+    line-height: 1.5;
 }
 
 strong {
     font-weight: bold;
+    color: #007bff;
 }
 
 .container::-webkit-scrollbar {
@@ -90,4 +129,77 @@ strong {
 
 .container::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    input, button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    input {
+        width: calc(100% - 40px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#movieDetails {
+    animation: fadeIn 1s ease-in-out;
+}
+
+button:active {
+    background-color: #004080;
+    border-color: #004080;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 2px;
+    background-color: #007bff;
+    margin: 10px auto 0;
+}
+
+#moviePoster::after {
+    content: "🎬";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.1);
+}
+
+input::placeholder {
+    color: #007bff;
+    font-style: italic;
+}
+
+input:focus::placeholder {
+    color: #0056b3;
+}
+
+button::after {
+    content: "🎥";
+    margin-left: 10px;
+}
+
+#moviePlot {
+    text-align: left;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
 }
